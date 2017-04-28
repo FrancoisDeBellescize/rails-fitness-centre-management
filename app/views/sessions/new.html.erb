@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="card card-container">
+        <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+        <%= form_tag sessions_path do %>
+            <%= password_field_tag :password, nil,  class:"form-control", placeholder:"Password" %>
+            <br>
+            <%= submit_tag "Log in", class:"btn btn-lg btn-primary btn-block" %>
+        <% end %>
+    </div>
+</div>
