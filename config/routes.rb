@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  get "sign_in" => "sessions#new"
-  get "sign_out" => "sessions#destroy"
+  root 'pages#show', :id => 1
+  get "login" => "sessions#new"
+  get "logout" => "sessions#destroy"
   get "admin" => "admin#show"
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :pages
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  scope '/admin' do
+    resources :pages, except: [:show]
+  end
+
+  resources :pages, only: [:show]
 end
