@@ -1,0 +1,47 @@
+<%= form_for(@classe) do |f| %>
+  <% if @classe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@classe.errors.count, "error") %> prohibited this class from being saved:</h2>
+
+      <ul>
+      <% @classe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :day %>
+    <%= select("classe", :day, ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time %>
+    <%= f.time_field :time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :instructor_name %>
+    <%= f.text_field :instructor_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_start %>
+    <%= f.date_select :date_start %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

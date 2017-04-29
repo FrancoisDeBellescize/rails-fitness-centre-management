@@ -27,12 +27,65 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">WFGroupProject</a>
+          <%= link_to "WFGroupProject", root_path, class:"navbar-brand" %>
+        </div>
+
+
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                  <a class="pointer" tabindex="-1">Pages</a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "New", controller: "pages", action: "new" %></li>
+                    <li class="divider"></li>
+                    <% pages.each do |page| %>
+                    <li><%= link_to page.name, controller: "pages", action: "edit", id: page %></li>
+                    <% end %>
+                  </ul>
+                </li>
+
+                <li class="dropdown-submenu">
+                  <a class="pointer" tabindex="-1">Membership options</a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "New", controller: "membership_options", action: "new" %></li>
+                    <li class="divider"></li>
+                    <% membership_options.each do |membership_option| %>
+                    <li><%= link_to membership_option.name, controller: "membership_options", action: "edit", id: membership_option %></li>
+                    <% end %>
+                  </ul>
+                </li>
+
+                <li class="dropdown-submenu">
+                  <a class="pointer" tabindex="-1">Classes</a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "New", controller: "classes", action: "new" %></li>
+                    <li class="divider"></li>
+                    <% classes.each do |classe| %>
+                    <li><%= link_to classe.name, controller: "classes", action: "edit", id: classe %></li>
+                    <% end %>
+                  </ul>
+                </li>
+
+                <li class="dropdown-submenu">
+                  <a class="pointer" tabindex="-1">Images</a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "New", controller: "pages", action: "new" %></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Show</a><li>
+                  </ul>
+                </li>
+
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
 
-    <div class="container">
+    <div class="container content-wrapper">
       <div class="row row-offcanvas row-offcanvas-left">
 
         <!-- sidebar -->
@@ -41,7 +94,6 @@
             <% pages.each do |page| %>
             <li><%= link_to page.name, controller: "pages", action: "show", id: page %></li>
             <% end %>
-            <li><%= link_to "Administration", admin_path %></li>
           </ul>
         </div>
 

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @classe.name %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @classe.day %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @classe.description %>
+</p>
+
+<p>
+  <strong>Instructor name:</strong>
+  <%= @classe.instructor_name %>
+</p>
+
+<p>
+  <strong>Date start:</strong>
+  <%= @classe.date_start %>
+</p>
+
+<%= link_to 'Edit', edit_class_path(@classe) %> |
+<%= link_to 'Back', classes_path %>

@@ -1,3 +1,5 @@
+<%= link_to 'Edit', edit_page_path(@page) if is_admin %>
+
 <p>
   <strong>Name:</strong>
   <%= @page.name %>
@@ -8,4 +10,41 @@
   <%= @page.content %>
 </p>
 
-<%= link_to 'Edit', edit_page_path(@page) if is_admin %>
+
+<% if @page.name == "Membership" %>
+<div class="row">
+  <% membership_options.each do |membership_option| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3><%= membership_option.name %></h3>
+        <p><%= membership_option.description %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% end %>
+
+<% if @page.name == "Classes" %>
+<div class="row">
+  <% classes.each do |classe| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3><%= classe.name %></h3>
+        <i><%= classe.date_start %></i>
+        <br><br>
+        <b><%= classe.instructor_name %></b>
+        <br>
+        <b>
+          <%= classe.day %> :
+          <%= classe.time.strftime('%l:%M %p') %>
+        </b>
+        <p><%= classe.description %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% end %>

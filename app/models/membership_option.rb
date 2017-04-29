@@ -1,0 +1,2 @@
+class MembershipOption < ApplicationRecord
+end
