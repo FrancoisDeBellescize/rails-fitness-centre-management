@@ -1,0 +1,7 @@
+<h1>New Booking
+  <% if @classe %>
+   for <%= @classe.name %>
+   <% end %>
+ </h1>
+
+<%= render 'form', class: @booking %>

@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   scope '/admin' do
     resources :pages, except: [:show]
     resources :membership_options, except: [:show]
+    resources :bookings, except: [:new]
   end
 
   resources :pages, only: [:show]
   resources :membership_options, only: [:show]
+  resources :bookings, only: [:new]
 end

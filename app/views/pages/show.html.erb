@@ -42,6 +42,8 @@
           <%= classe.time.strftime('%l:%M %p') %>
         </b>
         <p><%= classe.description %></p>
+
+        <%= link_to "Book", new_booking_path(:classe_id => classe), class:"btn btn-success" %>
       </div>
     </div>
   </div>
