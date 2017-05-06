@@ -39,10 +39,10 @@
                 <li class="dropdown-submenu">
                   <a class="pointer" tabindex="-1">Pages</a>
                   <ul class="dropdown-menu">
-                    <li><%= link_to "New", controller: "pages", action: "new" %></li>
+                    <li><%= link_to "New", new_page_path %></li>
                     <li class="divider"></li>
                     <% pages.each do |page| %>
-                    <li><%= link_to page.name, controller: "pages", action: "edit", id: page %></li>
+                    <li><%= link_to page.name, edit_page_path(page) %></li>
                     <% end %>
                   </ul>
                 </li>
@@ -50,10 +50,10 @@
                 <li class="dropdown-submenu">
                   <a class="pointer" tabindex="-1">Membership options</a>
                   <ul class="dropdown-menu">
-                    <li><%= link_to "New", controller: "membership_options", action: "new" %></li>
+                    <li><%= link_to "New", new_membership_option_path %></li>
                     <li class="divider"></li>
                     <% membership_options.each do |membership_option| %>
-                    <li><%= link_to membership_option.name, controller: "membership_options", action: "edit", id: membership_option %></li>
+                    <li><%= link_to membership_option.name, edit_membership_option_path(membership_option) %></li>
                     <% end %>
                   </ul>
                 </li>
@@ -61,10 +61,18 @@
                 <li class="dropdown-submenu">
                   <a class="pointer" tabindex="-1">Classes</a>
                   <ul class="dropdown-menu">
-                    <li><%= link_to "New", controller: "classes", action: "new" %></li>
+                    <li><%= link_to "New", new_class_path %></li>
                     <li class="divider"></li>
                     <% classes.each do |classe| %>
-                    <li><%= link_to classe.name, controller: "classes", action: "edit", id: classe %></li>
+
+                    <li class="dropdown-submenu">
+                      <a class="pointer" tabindex="-1"><%= classe.name %></a>
+                      <ul class="dropdown-menu">
+                        <li><%= link_to "Show", classe %></li>
+                        <li><%= link_to "Edit", edit_class_path(classe) %></li>
+                      </ul>
+                    </li>
+
                     <% end %>
                   </ul>
                 </li>

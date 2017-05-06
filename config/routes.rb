@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :classes
   resources :membership_options
   root 'pages#show', :id => 1
   get "login" => "sessions#new"
@@ -12,6 +11,7 @@ Rails.application.routes.draw do
     resources :pages, except: [:show]
     resources :membership_options, except: [:show]
     resources :bookings, except: [:new]
+    resources :classes
   end
 
   resources :pages, only: [:show]

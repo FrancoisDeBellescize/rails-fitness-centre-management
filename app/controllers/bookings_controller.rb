@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-  before_action :routing_admin, except: :show
+  before_action :routing_admin, except: [:new, :edit, :update, :destroy]
 
   def index
     @bookings = Booking.all
