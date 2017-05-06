@@ -12,9 +12,12 @@ Rails.application.routes.draw do
     resources :membership_options, except: [:show]
     resources :bookings, except: [:new]
     resources :classes
+    resources :messages, except: [:new]
   end
 
   resources :pages, only: [:show]
   resources :membership_options, only: [:show]
   resources :bookings, only: [:new]
+  resources :messages, only: [:new]
+
 end

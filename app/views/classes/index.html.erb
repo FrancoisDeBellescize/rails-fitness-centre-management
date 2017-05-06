@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Classes</h1>
 
 <table>
@@ -15,16 +13,16 @@
   </thead>
 
   <tbody>
-    <% @classes.each do |class| %>
+    <% @classes.each do |classe| %>
       <tr>
-        <td><%= class.name %></td>
-        <td><%= class.day %></td>
-        <td><%= class.description %></td>
-        <td><%= class.instructor_name %></td>
-        <td><%= class.date_start %></td>
-        <td><%= link_to 'Show', class %></td>
-        <td><%= link_to 'Edit', edit_class_path(class) %></td>
-        <td><%= link_to 'Destroy', class, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= classe.name %></td>
+        <td><%= classe.day %></td>
+        <td><%= classe.description %></td>
+        <td><%= classe.instructor_name %></td>
+        <td><%= classe.date_start %></td>
+        <td><%= link_to 'Show', classe %></td>
+        <td><%= link_to 'Edit', edit_class_path(classe) %></td>
+        <td><%= link_to 'Destroy', classe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

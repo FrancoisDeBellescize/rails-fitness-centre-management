@@ -1,4 +1,4 @@
-<%= link_to 'Edit', edit_page_path(@page) if is_admin %>
+<%= link_to 'Edit', edit_page_path(@page), class: "btn btn-danger btn-sm pull-right" if is_admin %>
 
 <p>
   <strong>Name:</strong>
@@ -11,7 +11,7 @@
 </p>
 
 
-<% if @page.name == "Membership" %>
+<% if @page.id == 2 %>
 <div class="row">
   <% membership_options.each do |membership_option| %>
   <div class="col-sm-6 col-md-4">
@@ -26,7 +26,7 @@
 </div>
 <% end %>
 
-<% if @page.name == "Classes" %>
+<% if @page.id == 3 %>
 <div class="row">
   <% classes.each do |classe| %>
   <div class="col-sm-6 col-md-4">
@@ -47,6 +47,13 @@
       </div>
     </div>
   </div>
-  <% end %>
+</div>
+<% end %>
+
+<% end %>
+<% if @page.id == 4 %>
+<div class="row">
+  <h1>Contact us</h1>
+  <%= render 'messages/form', message: Message.new %>
 </div>
 <% end %>

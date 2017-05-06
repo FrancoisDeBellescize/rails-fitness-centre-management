@@ -5,8 +5,6 @@
 <h3>Informations :</h3>
 <hr>
 
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @classe.name %>
@@ -32,18 +30,19 @@
   <%= @classe.date_start %>
 </p>
 
-<h3>Bookings :</h3>
+<h3>Bookings (<%= @classe.bookings.count %>) :</h3>
 <hr>
 <div class="container-fluid">
   <div class="row">
     <% @classe.bookings.each do |b| %>
     <div class="well col-md-4">
-      <%= link_to "Edit", edit_booking_path(b), class: "btn btn-sm btn-default pull-right" %>
       <b>Name :</b> <%= b.name %><br>
       <b>Phone :</b> <%= b.phone %><br>
       <b>Email :</b> <%= b.email %><br>
       <b>Membership id :</b> <%= b.membership_id %><br>
-      <b>Number of classes :</b> <%= b.number %>
+      <b>Number of classes :</b> <%= b.number %><br><br>
+      <%= link_to "Edit", edit_booking_path(b), class: "btn btn-sm btn-default" %>
+      <%= link_to "Delete", b, method: :delete, class: "btn btn-sm btn-danger" %>
     </div>
     <% end %>
   </div>
