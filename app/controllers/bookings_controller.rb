@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-  before_action :routing_admin, except: [:new, :edit, :update, :destroy]
+  before_action :routing_admin, except: [:new, :create, :edit, :update, :destroy]
 
   def new
     @booking = Booking.new
@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to Page.find(3), notice: 'Booking was successfully created.' }
+        format.html { redirect_to page_path(id: 3), method:"GET", action: "show",  notice: 'Booking was successfully created.' }
       else
         format.html { render :new }
       end

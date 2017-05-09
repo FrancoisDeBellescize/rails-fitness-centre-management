@@ -1,28 +1,20 @@
 class ClassesController < ApplicationController
   before_action :set_class, only: [:show, :edit, :update, :destroy]
 
-  # GET /classes
-  # GET /classes.json
   def index
     @classes = Classe.all
   end
 
-  # GET /classes/1
-  # GET /classes/1.json
   def show
   end
 
-  # GET /classes/new
   def new
     @classe = Classe.new
   end
 
-  # GET /classes/1/edit
   def edit
   end
 
-  # POST /classes
-  # POST /classes.json
   def create
     @classe = Classe.new(class_params)
 
@@ -37,8 +29,6 @@ class ClassesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /classes/1
-  # PATCH/PUT /classes/1.json
   def update
     respond_to do |format|
       if @classe.update(class_params)
@@ -51,8 +41,6 @@ class ClassesController < ApplicationController
     end
   end
 
-  # DELETE /classes/1
-  # DELETE /classes/1.json
   def destroy
     @classe.destroy
     respond_to do |format|
@@ -62,12 +50,10 @@ class ClassesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_class
       @classe = Classe.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def class_params
       params.require(:classe).permit(:name, :day, :description, :instructor_name, :date_start, :time)
     end
