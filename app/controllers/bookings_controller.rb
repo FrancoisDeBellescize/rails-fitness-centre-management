@@ -2,13 +2,6 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_action :routing_admin, except: [:new, :edit, :update, :destroy]
 
-  def index
-    @bookings = Booking.all
-  end
-
-  def show
-  end
-
   def new
     @booking = Booking.new
     @classe = Classe.find(params[:classe_id]) if(params.has_key?(:classe_id))
@@ -22,7 +15,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+        format.html { redirect_to Page.find(3), notice: 'Booking was successfully created.' }
       else
         format.html { render :new }
       end

@@ -1,6 +1,7 @@
-<h1>Editing Page</h1>
+<h1>Editing Page <%= @page.name %></h1>
 
 <%= render 'form', page: @page %>
 
-<%= link_to 'Show', @page %> |
-<%= link_to 'Back', pages_path %>
+<% if @page.id > 4 %>
+<%= link_to 'Delete', @page, method: :delete, class:"btn btn-danger" %>
+<% end %>
