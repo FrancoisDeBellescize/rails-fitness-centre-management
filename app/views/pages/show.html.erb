@@ -1,4 +1,37 @@
-<%= link_to 'Edit', edit_page_path(@page), class: "btn btn-danger btn-sm pull-right" if is_admin %>
+<%= link_to 'Edit', edit_page_path(@page), class: "admin-edit btn btn-danger btn-sm pull-right" if is_admin %>
+
+<% if @page.images.count > 0 %>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <% @page.images.each_with_index do |image, index| %>
+    <li data-target="#carousel-example-generic" data-slide-to="<%= image.id %>" <% if index == 0 %>class="active" <% end %>></li>
+    <% end %>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <% @page.images.each_with_index do |image, index| %>
+    <div class="item <% if index == 0 %>active<% end %>">
+      <img class="carousel-image" src="<%= image.url %>" alt="<%= image.alt %>">
+      <div class="carousel-caption">
+        <%= image.caption %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<% end %>
 
 <p>
   <strong>Name:</strong>

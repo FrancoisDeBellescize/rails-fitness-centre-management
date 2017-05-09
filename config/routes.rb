@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :images
   resources :membership_options
   root 'pages#show', :id => 1
   get "login" => "sessions#new"

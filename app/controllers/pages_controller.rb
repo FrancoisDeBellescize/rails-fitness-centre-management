@@ -29,7 +29,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
+        format.html { render :edit, notice: 'Page was successfully created.' }
         format.json { render :show, status: :created, location: @page }
       else
         format.html { render :new }
@@ -43,10 +43,10 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to @page, notice: 'Page was successfully updated.' }
-        format.json { render :show, status: :ok, location: @page }
+        format.html { redirect_to edit_page_path(@page), notice: 'Page was successfully updated.' }
+        format.json { render :edit, status: :ok, location: @page }
       else
-        format.html { render :edit }
+        format.html { redirect_to edit_page_path(@page) }
         format.json { render json: @page.errors, status: :unprocessable_entity }
       end
     end
@@ -70,6 +70,6 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:name, :content)
+      params.require(:page).permit(:name, :content, :pages, :image_ids => [])
     end
 end
