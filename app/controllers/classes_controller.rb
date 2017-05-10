@@ -1,6 +1,10 @@
 class ClassesController < ApplicationController
   before_action :set_class, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @classes = Classe.all
+  end
+
   def show
   end
 
@@ -14,23 +18,23 @@ class ClassesController < ApplicationController
   def create
     @classe = Classe.new(class_params)
     if @classe.save
-      format.html { redirect_to @classe, notice: 'Class was successfully created.' }
+      redirect_to @classe, notice: 'Class was successfully created.'
     else
-      format.html { render :new }
+      render :new
     end
   end
 
   def update
     if @classe.update(class_params)
-      format.html { redirect_to @classe, notice: 'Class was successfully updated.' }
+      redirect_to @classe, notice: 'Class was successfully updated.'
     else
-      format.html { render :edit }
+      render :edit
     end
   end
 
   def destroy
     @classe.destroy
-    format.html { redirect_to classes_url, notice: 'Class was successfully destroyed.' }
+    redirect_to classes_url, notice: 'Class was successfully destroyed.'
   end
 
   private

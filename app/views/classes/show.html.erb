@@ -30,6 +30,11 @@
   <%= @classe.date_start %>
 </p>
 
+<p>
+  <strong>Time</strong>
+  <%= @classe.time.strftime('%l:%M %p') %>
+</p>
+
 <h3>Bookings (<%= @classe.bookings.count %>) :</h3>
 <hr>
 <div class="container-fluid">

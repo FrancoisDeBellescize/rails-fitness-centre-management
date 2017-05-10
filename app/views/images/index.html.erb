@@ -2,13 +2,14 @@
 
 <h1>Images</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Filename</th>
       <th>Alt</th>
       <th>Caption</th>
       <th>Url</th>
+      <th>Image</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= image.alt %></td>
         <td><%= image.caption %></td>
         <td><%= image.url %></td>
+        <td><img class="small-picture" src="<%= image.url %>"/></td>
         <td><%= link_to 'Show', image %></td>
         <td><%= link_to 'Edit', edit_image_path(image) %></td>
         <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>

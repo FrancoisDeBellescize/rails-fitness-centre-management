@@ -20,5 +20,6 @@
   <%= @image.url %>
 </p>
 
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+<img src="<%= @image.url %>"><br><br>
+
+<%= link_to 'Back', images_path, class:"btn btn-default" %> <%= link_to 'Edit', edit_image_path(@image), class:"btn btn-warning" %>

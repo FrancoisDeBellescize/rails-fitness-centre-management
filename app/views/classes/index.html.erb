@@ -1,0 +1,34 @@
+<h1>Classes</h1>
+<hr>
+
+<%= link_to 'New Class', new_class_path, class:"btn btn-default" %><br><br>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Day</th>
+      <th>Description</th>
+      <th>Instructor Name</th>
+      <th>Date start</th>
+      <th>Time</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @classes.each do |classe| %>
+      <tr>
+        <td><%= classe.name %></td>
+        <td><%= classe.day %></td>
+        <td><%= classe.description %></td>
+        <td><%= classe.instructor_name %></td>
+        <td><%= classe.date_start %></td>
+        <td><%= classe.time.strftime('%l:%M %p') %></td>
+        <td><%= link_to 'Edit', edit_class_path(classe) %></td>
+        <td><%= link_to 'Destroy', classe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -3,7 +3,7 @@ class CreateMembershipOptions < ActiveRecord::Migration[5.0]
     create_table :membership_options do |t|
       t.string :name
       t.text :description
-      t.integer :price
+      t.float :price
 
       t.timestamps
     end

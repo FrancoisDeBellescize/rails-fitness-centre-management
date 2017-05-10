@@ -1,4 +1,5 @@
-<%= form_for(page) do |f| %>
+<div class="row">
+<%= form_for(page, :html => {:class => "col-md-5"}) do |f| %>
 <% if page.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
@@ -11,22 +12,35 @@
 </div>
 <% end %>
 
-<div class="field">
+<div class="from-group">
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, class:"form-control" %>
 </div>
 
-<div class="field">
+<div class="from-group">
   <%= f.label :content %>
-  <%= f.text_area :content %>
+  <%= f.text_area :content, class:"form-control" %>
 </div>
 
-<div class="form-inputs">
+<div class="from-group">
   <%= f.label :image_ids, "Images" %>
-  <%= f.collection_check_boxes :image_ids, Image.all, :id, :filename %>
+  <br>
+  <%= f.collection_check_boxes(:image_ids, Image.all, :id, :url, class:"form-control") do |b| %>
+    <%= b.label class:"label-checkbox" do%>
+     <%= b.check_box %> <img class="small-picture" src="<%= b.text %>"/>
+    <%end%>
+<% end %>
 </div>
 
-<div class="actions">
-  <%= f.submit %>
-</div>
+  <%= link_to 'Back', pages_path, class:"btn btn-default" %>
+
+  <%= f.submit class:"btn btn-success" %>
+
+  <% if @page.id && @page.id > 4 %>
+  <%= link_to 'Delete', @page, method: :delete, class:"btn btn-danger" %>
+  <% else %>
+  <a class="btn btn-danger" disabled="disabled">Delete</a>
+  <% end %>
+
 <% end %>
+</div>
